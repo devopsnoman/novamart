@@ -14,6 +14,22 @@ novamart/
 - Node.js 20.9 or newer
 - Docker (for local PostgreSQL and Redis)
 
+## Run everything with Docker Compose
+The quickest way to run the whole stack (PostgreSQL, Redis, API and storefront):
+
+```
+cp .env.example .env
+```
+Edit `.env` and set real values for `POSTGRES_PASSWORD` and `JWT_SECRET`, then:
+```
+docker compose up -d --build
+docker compose run --rm backend node src/db/seed.js
+```
+Open http://localhost:3000. Check the services with `docker compose ps`.
+
+Stop everything with `docker compose down` (your data is kept in a Docker volume).
+Add `-v` to also delete the database data.
+
 ## Backend: run locally
 1. Start PostgreSQL and Redis (local development only):
    ```
