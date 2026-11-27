@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: novamart-config
+  namespace: novamart
+data:
+  # Non-secret configuration
+  NODE_ENV: "production"
+  PORT: "4000"
+  REDIS_URL: "redis://redis:6379"
+  CORS_ORIGIN: "http://localhost:8080"
+  # Frontend
+  API_URL: "http://backend:4000"
+  NEXT_TELEMETRY_DISABLED: "1"
